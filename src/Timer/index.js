@@ -8,6 +8,9 @@ const Timer = ({ duration }) => {
         setTimeout(() => {
             setTime(time-1000);
         },1000);
+        if(time===0){
+            return () => alert("stopping now");
+        }
     }, [time]);
 
     const getFormattedTime = (milliseconds) => {
@@ -20,7 +23,6 @@ const Timer = ({ duration }) => {
         let hours = parseInt(t_hours%24);
 
         return `${hours}: ${minutes}: ${seconds}`
-
     };
 
     return <div>{getFormattedTime(time)}</div>;
