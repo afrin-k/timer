@@ -1,19 +1,22 @@
 import React,{useState,useEffect} from "react";
 
-const Timer = ({ duration }) => {
-
+const Timer = ({duration}) => {
     const [time, setTime] = useState(duration);
 
     useEffect(() => {
-        setTimeout(() => {
-            setTime(time-1000);
+        const interval = setInterval(() => {
+          setTime((time) => {
+            if (time <= 0) {
+                clearInterval(interval);
+                return 0;
+              }
+            return time-1000;
+          });
         },1000);
-        if(time===0){
-            return () => alert("stopping now");
-        }
-    }, [time]);
+          return () => clearInterval(interval);
+        }, [time]);
 
-    const getFormattedTime = (milliseconds) => {
+      const getFormattedTime = (milliseconds) => {
         let t_seconds=parseInt(Math.floor(time/1000));
         let t_minutes=parseInt(Math.floor(t_seconds/60));
         let t_hours=parseInt(Math.floor(t_minutes/60));
@@ -22,10 +25,17 @@ const Timer = ({ duration }) => {
         let minutes = parseInt(t_minutes%60);
         let hours = parseInt(t_hours%24);
 
-        return `${hours}: ${minutes}: ${seconds}`
+        let text = "sale ends!";
+
+        if(seconds !== 0)
+            return `${hours}: ${minutes}: ${seconds}`
+        else
+            return `${text}`
     };
 
-    return <div>{getFormattedTime(time)}</div>;
+    return <div>
+        <h1>{getFormattedTime(time)}</h1>
+        </div>;
 };
 
 export default Timer;
