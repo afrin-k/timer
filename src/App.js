@@ -16,24 +16,24 @@ const App = () =>{
   }
 
   return(
-    <div>
-          <input 
-            placeholder="hours..." 
-            value={hrs}
-            onChange={(e) => setHours(e.target.value)}    
-          />
-          <input 
-            placeholder="minutes..." 
-            value={mins}
-            onChange={(e) => setMinutes(e.target.value)}    
-          />
-          <input 
-            placeholder="seconds..." 
-            value={secs}
-            onChange={(e) => setSeconds(e.target.value)}    
-          />
-          <button type='submit' onClick={handleClick}>submit</button>
-          {clicked && <Timer duration={time}/>}
+    <div className='App'>
+      <input 
+        placeholder="hours..." 
+        value={hrs}
+        onChange={(e) => setHours(e.target.value)}    
+      />
+      <input 
+        placeholder="minutes..." 
+        value={mins}
+        onChange={(e) => setMinutes(e.target.value)}    
+      />
+      <input 
+        placeholder="seconds..." 
+        value={secs}
+        onChange={(e) => setSeconds(e.target.value)}    
+      />
+      <button type='submit' onClick={handleClick}>submit</button>
+      {clicked && <Timer duration={time}/>}
   </div>
   );
 }

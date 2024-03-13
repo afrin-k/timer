@@ -1,7 +1,32 @@
 .App {
-  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
+input{
+  text-align: center;
+  font-weight: 600;
+  width: 150px;
+  margin: 10px auto 10px auto ;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #F8F4FF;
+}
+
+button{
+  margin: 10px auto 10px auto;
+  width: 120px;
+  border-radius: 5%;
+  background-color: #29AB87;
+  padding: 2px 0 2px 0;
+  font-weight: 500;
+}
+
+input::placeholder{
+  color: #3B3C36;
+  font-weight: 500;
+}
+
