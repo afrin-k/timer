@@ -25,7 +25,7 @@ const Timer = ({duration}) => {
         let minutes = parseInt(t_minutes%60);
         let hours = parseInt(t_hours%24);
 
-        let text = "sale ends!";
+        let text = "happy birthday!";
 
         if(seconds !== 0)
             return `${hours}: ${minutes}: ${seconds}`
